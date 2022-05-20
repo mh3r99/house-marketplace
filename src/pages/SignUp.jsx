@@ -10,6 +10,7 @@ import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import OAuth from "../components/OAuth";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -114,7 +115,7 @@ function SignUp() {
             </div>
           </form>
 
-          {/* Google oAuth */}
+          <OAuth />
 
           <Link to="/sign-in" className="registerLink">
             Sign In Instead
