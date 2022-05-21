@@ -12,6 +12,7 @@ import {
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
+import ListingItem from "../components/ListingItem";
 
 function Category() {
   const [listings, setListings] = useState(null);
@@ -39,7 +40,6 @@ function Category() {
         const listings = [];
 
         querySnap.forEach((doc) => {
-          console.log(doc.data());
           listings.push({
             id: doc.id,
             data: doc.data(),
@@ -65,20 +65,28 @@ function Category() {
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
-        <>
-          <main>
-            <ul className="categoryListings">
-              {listings.map((listing) => (
-                <h3 key={listing.key}>{listing.data.name}</h3>
-              ))}
-            </ul>
-          </main>
-        </>
+        <View listings={listings} />
       ) : (
         <p>No listings for {params.categoryName}</p>
       )}
     </div>
   );
 }
+
+const View = ({ listings }) => (
+  <>
+    <main>
+      <ul className="categoryListings">
+        {listings.map((listing) => (
+          <ListingItem
+            key={listing.id}
+            listing={listing.data}
+            id={listing.id}
+          />
+        ))}
+      </ul>
+    </main>
+  </>
+);
 
 export default Category;
