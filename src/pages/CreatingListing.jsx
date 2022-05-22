@@ -224,7 +224,7 @@ function CreatingListing() {
               type="button"
               id="type"
               value="sale"
-              className={type == "sale" ? "formButtonActive" : "formButton"}
+              className={type === "sale" ? "formButtonActive" : "formButton"}
               onClick={onMutate}
             >
               Sell
@@ -234,7 +234,7 @@ function CreatingListing() {
               type="button"
               id="type"
               value="rent"
-              className={type == "rent" ? "formButtonActive" : "formButton"}
+              className={type === "rent" ? "formButtonActive" : "formButton"}
               onClick={onMutate}
             >
               Rent
