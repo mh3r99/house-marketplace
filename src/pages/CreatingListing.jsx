@@ -91,10 +91,14 @@ function CreatingListing() {
 
     if (geolocationEnabled) {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBz-nQjwImwpZA8dJ68cXqcF4PQ0rerWy4`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyCNDc9X3iNyvc3INUE6KXmDkhq5_SEfEYM`
       );
 
+      console.log(response);
+
       const data = await response.json();
+
+      console.log(data);
 
       geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
       geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
