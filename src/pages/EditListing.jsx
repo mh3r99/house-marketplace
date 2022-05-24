@@ -14,6 +14,7 @@ import { db } from "../firebase.config";
 import { v4 as uuidv4 } from "uuid";
 
 function EditListing() {
+  // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [listing, setListing] = useState(null);
@@ -171,6 +172,8 @@ function EditListing() {
                 break;
               case "running":
                 console.log("Upload is running");
+                break;
+              default:
                 break;
             }
           },

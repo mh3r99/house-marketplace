@@ -7,6 +7,7 @@ import { db } from "../firebase.config";
 function Contact() {
   const [message, setMessage] = useState("");
   const [landlord, setLandLord] = useState(null);
+  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
 
   const params = useParams();
@@ -27,10 +28,6 @@ function Contact() {
   }, [params.landlordId]);
 
   const onChange = (e) => setMessage(e.target.value);
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <div className="pageContainer">
